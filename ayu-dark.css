@@ -1,0 +1,1590 @@
+/* ============================================================================
+ * Ayu Dark — a Typora theme
+ * ----------------------------------------------------------------------------
+ * Author:    Kyle Anderson (https://github.com/kylekanderson)
+ * License:   MIT
+ * Version:   1.0.0
+ * Based on:  Ayu (https://github.com/ayu-theme) by Ike Ku
+ *
+ * A dark theme for Typora built on the canonical Ayu Dark palette.
+ * Self-contained: no external imports, no bundled fonts (system stacks only).
+ * ==========================================================================*/
+
+:root {
+    /* UI chrome */
+    --bg-color: #0A0E14;
+    --side-bar-bg-color: #0A0E14;
+    --panel-bg-color: #1E2126;
+    --text-color: #E6E6E6;
+
+    --select-text-bg-color: #273747;
+
+    --control-text-color: #BFBDB6;
+    --control-text-hover-color: #E6E6E6;
+    --window-border: 1px solid #1E2126;
+
+    --active-file-bg-color: #273747;
+    --active-file-border-color: #39BAE6;
+    --active-file-text-color: #E6E6E6;
+
+    --primary-color: #39BAE6;
+    --primary-btn-text-color: #0A0E14;
+    --accent-color: #E6B450;
+
+    --item-hover-bg-color: #1E2126;
+    --item-hover-text-color: #E6E6E6;
+
+    --rawblock-edit-panel-bd: #273747;
+    --search-select-bg-color: #273747;
+
+    /* Content palette */
+    --fg: #E6E6E6;
+    --fg-soft: #BFBDB6;
+    --gray: #626A6E;
+    --idle: #565B66;
+    --border-color: #273747;
+    --code-bg: #0A0E14;
+    --code-border: #1E2126;
+    --line-guide: #3C414A;
+
+    --blue: #39BAE6;
+    --light-blue: #59C2FF;
+    --green: #AAD94E;
+    --teal: #95E6CB;
+    --red: #F07178;
+    --orange: #FF8F40;
+    --orange-yellow: #FFB454;
+    --yellow: #E6B450;
+    --bright-yellow: #FFD994;
+    --purple: #D2A6FF;
+    --operator: #F29668;
+    --comment: #636A72;
+
+    --mermaid-theme: dark;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #0A0E14;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 780px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 860px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 980px;
+    }
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #E6E6E6;
+    color: var(--text-color);
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+.native-window #md-notification {
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #1E2126;
+    border-bottom-color: var(--panel-bg-color);
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji",
+        sans-serif;
+}
+
+/* ----------------------------------------------------------------------------
+ * Headings — Ayu rainbow
+ * ------------------------------------------------------------------------- */
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: inherit;
+    font-weight: bold;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+h1 {
+    font-size: 2.25rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 44px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    color: #59C2FF;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 26px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -0.5px;
+    color: #E6B450;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* ~19px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -0.5px;
+    color: #AAD94E;
+}
+
+h4 {
+    font-size: 1.05rem;
+    /* ~17px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: #95E6CB;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* ~16px */
+    line-height: 1.25rem;
+    /* 20px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: #F07178;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* ~15px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    /* 12px */
+    color: #D2A6FF;
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #565B66;
+        border: 1px solid #565B66;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+ * Links
+ * ------------------------------------------------------------------------- */
+
+a {
+    color: #39BAE6;
+    color: var(--blue);
+    text-decoration: none;
+    outline: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a:hover {
+    color: #E6B450;
+    color: var(--yellow);
+    text-decoration: underline;
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    color: #BFBDB6;
+    color: var(--fg-soft);
+    border-radius: 3px;
+    padding: 0 4px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Paragraphs & lists
+ * ------------------------------------------------------------------------- */
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #273747;
+    background: var(--select-text-bg-color);
+    color: #E6E6E6;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #273747;
+    background: var(--select-text-bg-color);
+    color: #E6E6E6;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+    color: #FFD994;
+    color: var(--bright-yellow);
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+mark {
+    background: #E6B450;
+    background: var(--yellow);
+    color: #0A0E14;
+    color: var(--bg-color);
+    padding: 0 3px;
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Blockquotes
+ * ------------------------------------------------------------------------- */
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 3px #39BAE6;
+    border-left: solid 3px var(--blue);
+    padding-left: 30px;
+    margin-top: 35px;
+    color: #BFBDB6;
+    color: var(--fg-soft);
+}
+
+/* ----------------------------------------------------------------------------
+ * Code — inline & fenced
+ * ------------------------------------------------------------------------- */
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875em;
+    font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, "Andale Mono",
+        "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #E6E6E6;
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+pre.md-fences {
+    padding: 12px 14px 12px 30px;
+    margin-bottom: 20px;
+    background: #0A0E14;
+    background: var(--code-bg);
+    border: 1px solid #1E2126;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+}
+
+.CodeMirror-gutters {
+    background: #0A0E14;
+    background: var(--code-bg);
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+[lang='mermaid'] .label {
+    color: #BFBDB6;
+}
+
+/* ----------------------------------------------------------------------------
+ * Tables
+ * ------------------------------------------------------------------------- */
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 6px 12px;
+    vertical-align: top;
+    border: solid 1px #273747;
+    border: solid 1px var(--border-color);
+}
+
+thead th {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+table tbody tr:nth-child(2n) {
+    background-color: rgba(39, 55, 71, 0.18);
+}
+
+table a {
+    color: #39BAE6;
+    color: var(--blue);
+}
+
+/* ----------------------------------------------------------------------------
+ * Horizontal rule
+ * ------------------------------------------------------------------------- */
+
+hr {
+    background: #273747;
+    background: var(--border-color);
+}
+
+/* ----------------------------------------------------------------------------
+ * Task lists
+ * ------------------------------------------------------------------------- */
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #39BAE6;
+    border: 1px solid var(--blue);
+    border-radius: 3px;
+    background-color: #0A0E14;
+    background-color: var(--bg-color);
+    margin-top: -0.4rem;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+    color: #0A0E14;
+    color: var(--bg-color);
+    background-color: #39BAE6;
+    background-color: var(--blue);
+}
+
+/* ----------------------------------------------------------------------------
+ * Images & captions
+ * ------------------------------------------------------------------------- */
+
+.md-image > .md-meta {
+    color: #626A6E;
+    color: var(--gray);
+    background: transparent;
+}
+
+.md-expand.md-image > .md-meta {
+    color: #BFBDB6;
+    color: var(--fg-soft);
+}
+
+.md-image-caption {
+    color: #626A6E;
+    color: var(--gray);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------------------------
+ * YAML front matter / meta block
+ * ------------------------------------------------------------------------- */
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #273747;
+    border-bottom: 1px dashed var(--border-color);
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+    color: #636A72;
+    color: var(--comment);
+}
+
+/* ----------------------------------------------------------------------------
+ * Math
+ * ------------------------------------------------------------------------- */
+
+.md-inline-math script {
+    color: #59C2FF;
+    color: var(--light-blue);
+}
+
+.md-inline-math svg {
+    color: #BFBDB6;
+    color: var(--fg-soft);
+}
+
+.md-mathjax-midline {
+    background-color: #273747;
+    background-color: var(--border-color);
+    border-bottom: none;
+}
+
+/* ----------------------------------------------------------------------------
+ * Comments & metadata
+ * ------------------------------------------------------------------------- */
+
+.md-comment {
+    color: #39BAE6;
+    color: var(--blue);
+    opacity: 0.8;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #565B66;
+    color: var(--idle);
+    display: inline;
+}
+
+/* ----------------------------------------------------------------------------
+ * TOC
+ * ------------------------------------------------------------------------- */
+
+.md-toc-item {
+    color: #BFBDB6;
+    color: var(--fg-soft);
+}
+
+.md-toc-item a {
+    color: inherit;
+}
+
+.md-toc-item a:hover {
+    color: #39BAE6;
+    color: var(--blue);
+}
+
+#write div.md-toc-tooltip {
+    background-color: #0A0E14;
+    background-color: var(--bg-color);
+    border: 1px solid #1E2126;
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: #E6E6E6;
+    color: var(--fg);
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+#toc-dropmenu {
+    background: rgba(10, 14, 20, 0.93);
+    border: 1px solid rgba(230, 230, 230, 0.12);
+}
+
+#toc-dropmenu .divider {
+    background-color: #273747;
+    background-color: var(--border-color);
+}
+
+/* ----------------------------------------------------------------------------
+ * Buttons & tooltips
+ * ------------------------------------------------------------------------- */
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #BFBDB6;
+    color: var(--fg-soft);
+}
+
+.ty-table-edit {
+    border-top: 1px solid #273747;
+    border-top: 1px solid var(--border-color);
+    background-color: #0A0E14;
+    background-color: var(--bg-color);
+}
+
+.popover-title {
+    background: transparent;
+}
+
+#ty-tooltip {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+#math-inline-preview .md-arrow:after {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+.md-table-resize-popover {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+}
+
+/* ----------------------------------------------------------------------------
+ * Quick open
+ * ------------------------------------------------------------------------- */
+
+.auto-suggest-container {
+    border: 0px;
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+}
+
+#typora-quick-open {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+}
+
+#typora-quick-open input {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    border: 0;
+    border-bottom: 1px solid #273747;
+    border-bottom: 1px solid var(--border-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #39BAE6;
+    background-color: var(--blue);
+    color: #0A0E14;
+    color: var(--bg-color);
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(57, 186, 230, 0.8);
+}
+
+.typora-search-spinner > div {
+    background-color: #E6E6E6;
+}
+
+/* ----------------------------------------------------------------------------
+ * Modals
+ * ------------------------------------------------------------------------- */
+
+.modal-content {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+    border: 0;
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(10, 14, 20, 0.51);
+    color: #E6E6E6;
+    color: var(--fg);
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+}
+
+.modal-content .input-group-addon {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.modal-backdrop {
+    background-color: rgba(10, 14, 20, 0.7);
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.modal-content .btn-primary {
+    border-color: #39BAE6;
+    border-color: var(--primary-color);
+    background-color: #39BAE6;
+    background-color: var(--primary-color);
+    color: #0A0E14;
+    color: var(--bg-color);
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+.modal-footer .btn-default,
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: #0A0E14;
+    color: var(--bg-color);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    color: #E6E6E6;
+    color: var(--fg);
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+    background-color: inherit;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Sidebar
+ * ------------------------------------------------------------------------- */
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+    background-color: #0A0E14;
+    background-color: var(--side-bar-bg-color);
+}
+
+.sidebar-tabs {
+    border-bottom: 0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+    border-left-color: #1E2126;
+    border-left-color: var(--code-border);
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+.outline-item:hover {
+    border-color: #1E2126;
+    border-color: var(--code-border);
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.outline-item-active,
+.outline-item-active:hover {
+    color: #39BAE6;
+    color: var(--blue);
+}
+
+.file-list-item {
+    border-bottom: none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+    color: #626A6E;
+    color: var(--gray);
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active > .file-node-content,
+.file-list-item.active {
+    color: #E6E6E6;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active > .file-node-background {
+    background-color: #273747;
+    background-color: var(--active-file-bg-color);
+}
+
+.file-list-item.active {
+    background-color: #273747;
+    background-color: var(--active-file-bg-color);
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.html-for-mac .file-node-open-state,
+.html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+/* try fix https://github.com/typora/typora-issues/issues/5253 */
+.file-node-expanded > .file-node-children {
+    display: grid;
+}
+
+#sidebar-files-menu {
+    border: solid 1px #1E2126;
+    border: solid 1px var(--code-border);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+/* ----------------------------------------------------------------------------
+ * Electron UI — context menus, footer, search panel
+ * ------------------------------------------------------------------------- */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #273747;
+    background-color: var(--border-color);
+    opacity: 1;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+footer.ty-footer {
+    border-color: #1E2126;
+    border-color: var(--code-border);
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed #273747;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+#md-searchpanel input {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.md-search-hit {
+    background: rgba(230, 180, 80, 0.35);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.md-search-hit * {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+/* ----------------------------------------------------------------------------
+ * Megamenu
+ * ------------------------------------------------------------------------- */
+
+.megamenu-content,
+.megamenu-opened header {
+    background: #0A0E14;
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid #273747;
+    border-bottom: 1px solid var(--border-color);
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px #626A6E solid;
+    border: 1px var(--gray) solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #1E2126;
+    background-color: var(--panel-bg-color);
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: #39BAE6;
+    color: var(--blue);
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+    background: transparent;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+#w-unpin {
+    background-color: #39BAE6;
+    background-color: var(--blue);
+}
+
+#top-titlebar,
+#top-titlebar * {
+    color: #E6E6E6;
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+#toggle-sourceview-btn:hover {
+    color: #E6E6E6;
+    color: var(--fg);
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+/* ----------------------------------------------------------------------------
+ * Scrollbars
+ * ------------------------------------------------------------------------- */
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(230, 230, 230, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(230, 230, 230, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+/* ----------------------------------------------------------------------------
+ * Preferences
+ * ------------------------------------------------------------------------- */
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+
+.ty-preferences .btn-default:hover {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+}
+
+.ty-preferences select {
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+    background: #1E2126;
+    background: var(--panel-bg-color);
+    color: #E6E6E6;
+    color: var(--fg);
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: #1E2126;
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #1E2126;
+    border-color: var(--code-border);
+    background: #1E2126;
+    background: var(--code-border);
+    line-height: 22px;
+    border-radius: 6px;
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+.nav-group-item:active {
+    background-color: #273747 !important;
+    background-color: var(--border-color) !important;
+}
+
+.ty-editor-toolbar {
+    background: #1E2126;
+    background: var(--panel-bg-color);
+    border: 1px solid rgba(127 127 127 / 50%);
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 30%));
+    --text-color: #E6E6E6;
+}
+
+/* ----------------------------------------------------------------------------
+ * Focus mode
+ * ------------------------------------------------------------------------- */
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #565B66 !important;
+    color: var(--idle) !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container) > input {
+    opacity: 0.4;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container) {
+    color: #565B66;
+    color: var(--idle);
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code > *:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #565B66 !important;
+    color: var(--idle) !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #E6E6E6;
+    color: var(--fg);
+}
+
+.on-focus-mode #typora-source .CodeMirror-code > *:not(.CodeMirror-activeline) * {
+    color: #565B66 !important;
+    color: var(--idle) !important;
+}
+
+/* ----------------------------------------------------------------------------
+ * Diagrams
+ * ------------------------------------------------------------------------- */
+
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #273747;
+    border: 1px solid var(--border-color);
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #F07178;
+    color: var(--red);
+}
+
+/* ----------------------------------------------------------------------------
+ * Alerts (GitHub-style admonitions)
+ * ------------------------------------------------------------------------- */
+
+.md-alert-text-note {
+    color: #59C2FF;
+}
+
+.md-alert-text-important {
+    color: #D2A6FF;
+}
+
+.md-alert-text-warning {
+    color: #E6B450;
+}
+
+.md-alert-text-tip {
+    color: #AAD94E;
+}
+
+.md-alert-text-caution {
+    color: #F07178;
+}
+
+/* ============================================================================
+ * Syntax highlighting — fenced code blocks (CodeMirror)
+ * ==========================================================================*/
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-property {
+    color: #BFBDB6;
+}
+
+.cm-s-inner .cm-operator {
+    color: #F29668;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #FF8F40;
+}
+
+.cm-s-inner .cm-tag {
+    color: #39BAE6;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #FFB454;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #E6E6E6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #AAD94E;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #95E6CB;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #636A72;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #59C2FF;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #95E6CB;
+}
+
+.cm-s-inner .cm-hr {
+    color: #565B66;
+}
+
+.cm-s-inner .cm-link {
+    color: #39BAE6;
+}
+
+.cm-s-inner .cm-negative {
+    color: #F07178;
+}
+
+.cm-s-inner .cm-positive {
+    color: #AAD94E;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #626A6E;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #D2A6FF;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #565B66;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #D2A6FF;
+}
+
+.cm-s-inner .cm-number {
+    color: #D2A6FF;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #59C2FF;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #95E6CB;
+}
+
+.cm-s-inner .cm-error,
+.cm-s-inner.cm-error {
+    color: #D95757;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #273747;
+    color: #E6E6E6 !important;
+    text-shadow: none;
+}
+
+.CodeMirror-activeline-background {
+    background: rgba(30, 33, 38, 0.5);
+}
+
+.CodeMirror-line::selection,
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection {
+    background: #273747;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+.CodeMirror-linenumber {
+    color: #3C414A;
+}
+
+.CodeMirror-activeline .CodeMirror-linenumber {
+    color: #565B66;
+}
+
+/* ============================================================================
+ * Syntax highlighting — source code mode
+ * ==========================================================================*/
+
+.cm-s-typora-default .cm-header,
+.cm-s-typora-default .cm-property {
+    color: #59C2FF;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+    border-left: 3px solid #E6E6E6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #636A72;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #AAD94E;
+}
+
+.cm-s-typora-default .cm-atom,
+.cm-s-typora-default .cm-number {
+    color: #D2A6FF;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #39BAE6;
+}
+
+.cm-s-typora-default .cm-code {
+    color: #FFB454;
+}
+
+.cm-s-typora-default .cm-tag {
+    color: #39BAE6;
+}
+
+.cm-s-typora-default .cm-keyword {
+    color: #FF8F40;
+}
+
+.cm-s-typora-default .cm-variable,
+.cm-s-typora-default .cm-variable-2 {
+    color: #BFBDB6;
+}
+
+.cm-s-typora-default .cm-operator {
+    color: #F29668;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(30, 33, 38, 0.5);
+}
+
+/* ============================================================================
+ * Print / PDF export — light fallback for readability
+ * ==========================================================================*/
+
+@media print {
+    html,
+    body {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+    }
+
+    #write {
+        max-width: 100% !important;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    b, th, dt, strong,
+    blockquote,
+    table a {
+        color: #1a1a1a !important;
+    }
+
+    a {
+        color: #0366d6 !important;
+    }
+
+    p, ul, ol, blockquote, pre, table, hr {
+        color: #1a1a1a !important;
+    }
+
+    blockquote {
+        border-left-color: #c0c0c0 !important;
+    }
+
+    code, tt, var, kbd {
+        background: #f2f2f2 !important;
+        color: #1a1a1a !important;
+        border: none !important;
+    }
+
+    pre.md-fences,
+    .CodeMirror-gutters {
+        background: #f7f7f7 !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+
+    th, td {
+        border-color: #c8c8c8 !important;
+    }
+
+    thead th {
+        background: #efefef !important;
+    }
+
+    table tbody tr:nth-child(2n) {
+        background-color: #f5f5f5 !important;
+    }
+
+    hr {
+        background: #c8c8c8 !important;
+    }
+
+    mark {
+        background: #ffe58f !important;
+        color: #1a1a1a !important;
+    }
+
+    .md-task-list-item > input:before {
+        border-color: #888 !important;
+        background: #ffffff !important;
+    }
+
+    .md-task-list-item > input:checked:before,
+    .md-task-list-item > input[checked]:before {
+        background-color: #0366d6 !important;
+        color: #ffffff !important;
+    }
+
+    #typora-sidebar,
+    footer.ty-footer,
+    #md-searchpanel {
+        display: none !important;
+    }
+}
